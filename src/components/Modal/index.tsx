@@ -4,5 +4,5 @@ export interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose }: ModalProps) {
-  return <div>Modal</div>;
+  return <div>Modal - 1</div>;
 }
