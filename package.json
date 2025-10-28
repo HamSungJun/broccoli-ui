@@ -66,6 +66,6 @@
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.2.0"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "oxlint"
+    "**/*.{js,jsx,ts,tsx}": "oxlint -c ./.oxlintrc.json --deny-warnings --type-aware"
   }
 }

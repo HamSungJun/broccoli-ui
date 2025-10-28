@@ -3,6 +3,6 @@ export interface ModalProps {
   onClose: () => void;
 }
 
-export default function Modal({ isOpen, onClose }: ModalProps) {
-  return <div>Modal - 12</div>;
+export default function Modal() {
+  return <div>Modal - 123</div>;
 }
