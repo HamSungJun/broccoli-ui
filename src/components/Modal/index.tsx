@@ -4,5 +4,5 @@ export interface ModalProps {
 }
 
 export default function Modal() {
-  return <div>Modal - 123</div>;
+  return <div>Modal - 1234</div>;
 }
