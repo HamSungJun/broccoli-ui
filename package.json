@@ -8,7 +8,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "lint": "oxlint -c ./.oxlintrc.json --deny-warnings --type-aware",
-    "build": "rollup --config",
+    "build": "npm run build-script && npm run build-style",
+    "build-script": "rollup --config",
+    "build-style": "lightningcss --minify --bundle --targets \">= 0.25%, not dead\" ./src/styles/index.css -o ./dist/index.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky"
@@ -50,6 +52,7 @@
     "@types/react-dom": "^19.2.2",
     "@types/react-transition-group": "^4.4.12",
     "husky": "^9.1.7",
+    "lightningcss-cli": "^1.30.2",
     "lint-staged": "^16.2.6",
     "oxlint": "^1.24.0",
     "oxlint-tsgolint": "^0.3.0",
