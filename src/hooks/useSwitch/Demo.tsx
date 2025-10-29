@@ -1,4 +1,4 @@
-import useSwitch, { type UseSwitchProps } from "./index";
+import useSwitch, { type UseSwitchProps } from "./index.client";
 
 export default function Demo({ initialValue }: UseSwitchProps) {
   const { isOn, setOn, setOff, toggle } = useSwitch({ initialValue });

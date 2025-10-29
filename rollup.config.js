@@ -1,10 +1,10 @@
-import resolve from "@rollup/plugin-node-resolve";
 import { babel } from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
-import commonjs from "@rollup/plugin-commonjs";
-import dts from "unplugin-dts/rollup";
 import del from "rollup-plugin-delete";
+import dts from "unplugin-dts/rollup";
 
 /** @type {import('rollup').RollupOptions} */
 export default {
@@ -13,8 +13,14 @@ export default {
     {
       dir: "dist",
       format: "esm",
-      plugins: [terser()],
+      plugins: [terser({ compress: { directives: false } })],
       preserveModules: true,
+      banner: (chuknInfo) => {
+        if (chuknInfo.name.includes(".client")) {
+          return `"use client"`;
+        }
+        return "";
+      },
     },
   ],
   plugins: [
