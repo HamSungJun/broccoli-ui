@@ -37,10 +37,10 @@
   top: 2px;
 }
 
-.broccoli-ui-switch-thumb--on {
+.broccoli-ui-switch-thumb--off {
   left: 2px;
 }
 
-.broccoli-ui-switch-thumb--off {
+.broccoli-ui-switch-thumb--on {
   left: calc(100% - 18px - 2px);
 }
