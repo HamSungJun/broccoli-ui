@@ -1,3 +1,2 @@
-@import "./reset.css";
-@import "./normalize.css";
 @import "../components/Modal/index.css";
+@import "../components/Switch/index.css";

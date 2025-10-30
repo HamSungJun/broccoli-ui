@@ -1,0 +1,46 @@
+.broccoli-ui-switch-container {
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+}
+
+.broccoli-ui-switch-container:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.broccoli-ui-switch-track {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: 20px;
+}
+
+.broccoli-ui-switch-track--on {
+  background-color: oklch(0.65 0.18 240);
+}
+
+.broccoli-ui-switch-track--off {
+  background-color: oklch(0.803 0 0);
+}
+
+.broccoli-ui-switch-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: oklch(1 0 0);
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+  top: 2px;
+}
+
+.broccoli-ui-switch-thumb--on {
+  left: calc(100% - 18px - 2px);
+}
+
+.broccoli-ui-switch-thumb--off {
+  left: 2px;
+}

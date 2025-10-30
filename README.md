@@ -13,3 +13,8 @@ This library introduces the “headless” concept to address that inefficiency.
 ```bash
 $ npm install @hsjprime/broccoli-ui
 ```
+
+## Resources
+
+- [Modal](https://hamsungjun.github.io/broccoli-ui/?path=/docs/components-modal--docs)
+- [Switch](https://hamsungjun.github.io/broccoli-ui/?path=/docs/components-switch--docs)
