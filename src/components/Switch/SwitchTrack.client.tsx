@@ -1,3 +1,5 @@
+"use client";
+
 import { type PropsWithChildren, useContext } from "react";
 
 import clsx from "clsx";
