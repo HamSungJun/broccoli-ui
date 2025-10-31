@@ -8,7 +8,7 @@ export default function SwitchContainer({ children }: PropsWithChildren) {
   const { classes, on, disabled, onChange } = useContext(SwitchContext);
 
   const onClick = () => {
-    onChange?.(on);
+    onChange?.(!on);
   };
 
   return (

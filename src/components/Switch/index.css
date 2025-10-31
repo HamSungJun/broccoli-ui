@@ -1,5 +1,5 @@
 .broccoli-ui-switch-container {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   border: none;
   cursor: pointer;
@@ -13,10 +13,11 @@
 }
 
 .broccoli-ui-switch-track {
-  position: relative;
+  display: flex;
   width: 40px;
   height: 22px;
   border-radius: 20px;
+  padding: 2px;
 }
 
 .broccoli-ui-switch-track--on {
@@ -28,19 +29,18 @@
 }
 
 .broccoli-ui-switch-thumb {
+  display: inline-block;
   width: 18px;
   height: 18px;
   border-radius: 100%;
   background-color: oklch(1 0 0);
   transition: all 0.25s ease-in-out;
-  position: absolute;
-  top: 2px;
 }
 
 .broccoli-ui-switch-thumb--on {
-  left: calc(100% - 18px - 2px);
+  transform: translateX(100%);
 }
 
 .broccoli-ui-switch-thumb--off {
-  left: 2px;
+  transform: translateX(0px);
 }
