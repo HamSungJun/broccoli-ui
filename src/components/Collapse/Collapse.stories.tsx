@@ -10,12 +10,6 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  argTypes: {
-    onEnter: { action: "onEnter" },
-    onEntered: { action: "onEntered" },
-    onExit: { action: "onExit" },
-    onExited: { action: "onExited" },
-  },
   args: {
     isOpen: false,
     duration: BROCCOLI_UI_DEFAULT_TRANSITION_DURATION,
