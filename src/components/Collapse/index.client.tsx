@@ -75,7 +75,7 @@ export default function Collapse({
       onExited={onExited}
     >
       <div
-        style={{ height }}
+        style={{ height, transitionDuration: `${duration}ms` }}
         className={clsx("broccoli-ui-collapse", className)}
         ref={nodeRef}
       >
