@@ -11,6 +11,7 @@ import { BROCCOLI_UI_DEFAULT_TRANSITION_DURATION } from "../../constant";
 export interface CollapseProps extends PropsWithChildren {
   className?: string;
   isOpen?: boolean;
+  appear?: boolean;
   duration?: number;
   onEnter?: () => void;
   onEntered?: () => void;
@@ -20,7 +21,8 @@ export interface CollapseProps extends PropsWithChildren {
 
 export default function Collapse({
   className,
-  isOpen,
+  isOpen = false,
+  appear = false,
   duration = BROCCOLI_UI_DEFAULT_TRANSITION_DURATION,
   children,
   onEnter: onEnterProp,
@@ -67,6 +69,7 @@ export default function Collapse({
       nodeRef={nodeRef}
       timeout={duration}
       in={isOpen}
+      appear={appear}
       onEnter={onEnter}
       onEntering={onEntering}
       onEntered={onEntered}
