@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
+@import "./global.css";
 @import "../components/Modal/index.css";
 @import "../components/Switch/index.css";
+@import "../components/Collapse/index.css";

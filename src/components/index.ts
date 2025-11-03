@@ -5,3 +5,6 @@ export type { ModalPanelProps } from "./Modal/ModalPanel.client";
 
 export { default as Switch } from "./Switch/index.client";
 export type { SwitchProps } from "./Switch/index.client";
+
+export { default as Collapse } from "./Collapse/index.client";
+export type { CollapseProps } from "./Collapse/index.client";
