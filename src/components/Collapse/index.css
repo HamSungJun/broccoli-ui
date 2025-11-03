@@ -1,0 +1,4 @@
+.broccoli-ui-collapse {
+  overflow: hidden;
+  transition: height var(--broccoli-ui-default-transition-duration) ease-in-out;
+}
