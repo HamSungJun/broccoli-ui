@@ -2,7 +2,7 @@
 
 import { type PropsWithChildren, useRef, useState } from "react";
 
-import { Transition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 import clsx from "clsx";
 
@@ -65,7 +65,7 @@ export default function Collapse({
   };
 
   return (
-    <Transition
+    <CSSTransition
       nodeRef={nodeRef}
       timeout={duration}
       in={isOpen}
@@ -78,12 +78,12 @@ export default function Collapse({
       onExited={onExited}
     >
       <div
-        style={{ height, transitionDuration: `${duration}ms` }}
+        style={{ transitionDuration: `${duration}ms`, height }}
         className={clsx("broccoli-ui-collapse", className)}
         ref={nodeRef}
       >
         {children}
       </div>
-    </Transition>
+    </CSSTransition>
   );
 }
