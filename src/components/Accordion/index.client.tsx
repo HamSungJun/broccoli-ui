@@ -14,10 +14,7 @@ import { AccordionContext } from "./context.client";
 
 export interface AccordionProps
   extends PropsWithChildren<
-    Omit<
-      CollapseProps,
-      "className" | "isOpen" | "children" | "duration" | "appear"
-    >
+    Omit<CollapseProps, "className" | "isOpen" | "children" | "appear">
   > {
   className?: string;
   isOpen?: boolean;
