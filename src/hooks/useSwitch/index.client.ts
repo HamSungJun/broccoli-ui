@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export interface UseSwitchProps {
   initialValue?: boolean;
@@ -9,17 +9,17 @@ export default function useSwitch({
 }: UseSwitchProps = {}) {
   const [isOn, setIsOn] = useState(initialValue);
 
-  const setOn = () => {
+  const setOn = useCallback(() => {
     setIsOn(true);
-  };
+  }, []);
 
-  const setOff = () => {
+  const setOff = useCallback(() => {
     setIsOn(false);
-  };
+  }, []);
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     setIsOn((prev) => !prev);
-  };
+  }, []);
 
   return { isOn, setOn, setOff, toggle };
 }

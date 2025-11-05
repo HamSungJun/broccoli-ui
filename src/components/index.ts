@@ -8,3 +8,9 @@ export type { SwitchProps } from "./Switch/index.client";
 
 export { default as Collapse } from "./Collapse/index.client";
 export type { CollapseProps } from "./Collapse/index.client";
+
+export { default as Accordion } from "./Accordion/index.client";
+export type { AccordionProps } from "./Accordion/index.client";
+export type { AccordionBodyProps } from "./Accordion/AccordionBody.client";
+export type { AccordionHeadProps } from "./Accordion/AccordionHead.client";
+export type { AccordionContextProps } from "./Accordion/context.client";

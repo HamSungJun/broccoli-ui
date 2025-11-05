@@ -1,0 +1,32 @@
+.broccoli-ui-accordion {
+  border: 1px solid oklch(84.52% 0 0);
+}
+
+.broccoli-ui-accordion-head {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0px;
+  background-color: transparent;
+}
+
+.broccoli-ui-accordion-head-title {
+  flex: 1;
+}
+
+.broccoli-ui-accordion-head-icon {
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+}
+
+.broccoli-ui-accordion-head-icon--opened {
+  transform: rotate(0deg);
+}
+
+.broccoli-ui-accordion-head-icon--closed {
+  transform: rotate(-180deg);
+}
