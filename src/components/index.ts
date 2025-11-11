@@ -14,3 +14,5 @@ export type { AccordionProps } from "./Accordion/index.client";
 export type { AccordionBodyProps } from "./Accordion/AccordionBody.client";
 export type { AccordionHeadProps } from "./Accordion/AccordionHead.client";
 export type { AccordionContextProps } from "./Accordion/context.client";
+
+export { default as GlobalUIObserver } from "./GlobalUIObserver/index.client";

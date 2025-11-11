@@ -4,4 +4,7 @@
 
 :root {
   --broccoli-ui-default-transition-duration: 250ms;
+  --broccoli-ui-default-panel-background-color: oklch(1 0 0);
+  --broccoli-ui-default-layer-background-color: oklch(0 0 0 / 0.5);
+  --broccoli-ui-default-transition-timing-function: ease-in-out;
 }
