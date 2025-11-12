@@ -1,18 +1,22 @@
 "use client";
 
 import {
-  type CSSProperties,
   type MouseEventHandler,
   type PropsWithChildren,
   useEffect,
   useRef,
 } from "react";
 
-import { Transition, type TransitionStatus } from "react-transition-group";
-
-import useBodyScrollLock from "../../hooks/useBodyScrollLock/index.client";
+import { Transition } from "react-transition-group";
 
 import clsx from "clsx";
+
+import {
+  BROCCOLI_UI_DEFAULT_TRANSITION_TIMING_FUNCTION,
+  BROCCOLI_UI_LAYER_CLASS,
+  BROCCOLI_UI_MODAL_LAYER_CLASS,
+} from "../../constant";
+import { fadeTransition } from "../../util/transition";
 
 export interface ModalLayerProps extends PropsWithChildren {
   className?: string;
@@ -33,25 +37,14 @@ export default function ModalLayer({
   duration,
   closeOnLayerClick,
   closeOnEscapeKeyDown,
-  onEnter: onEnterProp,
+  onEnter,
   onEntered,
-  onExit: onExitProp,
+  onExit,
   onExited,
   onClose,
   children,
 }: ModalLayerProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
-  const { lockScroll, unlockScroll } = useBodyScrollLock();
-
-  const onEnter = () => {
-    lockScroll();
-    onEnterProp?.();
-  };
-
-  const onExit = () => {
-    unlockScroll();
-    onExitProp?.();
-  };
 
   const onClick: MouseEventHandler<HTMLDivElement> = (event) => {
     if (!closeOnLayerClick) return;
@@ -89,10 +82,14 @@ export default function ModalLayer({
         <div
           ref={nodeRef}
           style={{
-            ...transitionStyles[state],
-            transition: `all ${duration}ms ease-in-out`,
+            ...fadeTransition[state],
+            transition: `opacity ${duration}ms ${BROCCOLI_UI_DEFAULT_TRANSITION_TIMING_FUNCTION}`,
           }}
-          className={clsx(MODAL_LAYER_SELECTOR, className)}
+          className={clsx(
+            BROCCOLI_UI_LAYER_CLASS,
+            BROCCOLI_UI_MODAL_LAYER_CLASS,
+            className,
+          )}
           onClick={onClick}
         >
           {children}
@@ -102,18 +99,8 @@ export default function ModalLayer({
   );
 }
 
-const transitionStyles: Record<TransitionStatus, CSSProperties> = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 1 },
-  exited: { opacity: 0 },
-  unmounted: { opacity: 0 },
-};
-
-const MODAL_LAYER_SELECTOR = "broccoli-ui-modal-layer";
-
 const getModals = () => {
-  return document.querySelectorAll(`.${MODAL_LAYER_SELECTOR}`);
+  return document.querySelectorAll(`.${BROCCOLI_UI_MODAL_LAYER_CLASS}`);
 };
 
 const checkIsLastModalOnDocument = (element: HTMLDivElement | null) => {

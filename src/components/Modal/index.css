@@ -7,9 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: oklch(0 0 0 / 0.5);
+  background-color: var(--broccoli-ui-default-layer-background-color);
 }
 
 .broccoli-ui-modal-panel {
-  background-color: oklch(1 0 0);
+  background-color: var(--broccoli-ui-default-panel-background-color);
 }

@@ -1,0 +1,18 @@
+.broccoli-ui-bottom-sheet-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--broccoli-ui-default-layer-background-color);
+}
+
+.broccoli-ui-bottom-sheet-panel {
+  position: fixed;
+  background-color: var(--broccoli-ui-default-panel-background-color);
+  transition-property: bottom;
+  transition-timing-function: var(
+    --broccoli-ui-default-transition-timing-function
+  );
+  padding-bottom: env(safe-area-inset-bottom);
+}

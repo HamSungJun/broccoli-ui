@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 
 import { isIOS } from "react-device-detect";
 
@@ -7,7 +7,7 @@ export default function useBodyScrollLock() {
     scrollY: 0,
   });
 
-  const lockScroll = () => {
+  const lockScroll = useCallback(() => {
     document.body.style.overflow = "hidden";
 
     if (isIOS) {
@@ -17,9 +17,9 @@ export default function useBodyScrollLock() {
       document.body.style.right = "0px";
       document.body.style.top = `-${scrollMemoryRef.current.scrollY}px`;
     }
-  };
+  }, []);
 
-  const unlockScroll = () => {
+  const unlockScroll = useCallback(() => {
     document.body.style.overflow = "visible";
 
     if (isIOS) {
@@ -30,7 +30,7 @@ export default function useBodyScrollLock() {
       window.scrollTo(0, scrollMemoryRef.current.scrollY);
       scrollMemoryRef.current.scrollY = 0;
     }
-  };
+  }, []);
 
   return { lockScroll, unlockScroll };
 }

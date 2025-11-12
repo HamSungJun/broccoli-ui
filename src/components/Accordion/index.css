@@ -20,7 +20,9 @@
 
 .broccoli-ui-accordion-head-icon {
   transition-property: transform;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: var(
+    --broccoli-ui-default-transition-timing-function
+  );
 }
 
 .broccoli-ui-accordion-head-icon--opened {
