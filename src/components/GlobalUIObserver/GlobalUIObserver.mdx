@@ -1,0 +1,74 @@
+# GlobalUIObserver
+
+The **GlobalUIObserver** monitors whether Layer components that make up **Modal** or **BottomSheet** are appended as child elements of the `document.body`.
+
+If a Layer component is attached to the DOM, it executes the `lockScroll` function from `useBodyScrollLock` to prevent the window from scrolling. Otherwise, it calls the `unlockScroll` function to restore scrolling functionality.
+
+## Usage Guide
+
+Configure it as follows so that a single Observer instance can operate at the global level of your React application.
+
+```tsx
+/* App.tsx */
+export default function App() {
+  return <GlobalUIObserver>{children}</GlobalUIObserver>;
+}
+```
+
+Now, the **MutationObserver** will monitor whether an **HTMLElement** with the classname `broccoli-ui-layer` is added to or removed from the `document.body`.
+
+## Implementation
+
+Since the **MutationObserver** only detects changes to the **direct child elements** of `document.body`, excessive callback handler invocations will not occur.
+
+```tsx
+"use client";
+
+import { type PropsWithChildren, useEffect } from "react";
+
+import useBodyScrollLock from "../../hooks/useBodyScrollLock/index.client";
+
+import { BROCCOLI_UI_LAYER_CLASS } from "../../constant";
+
+export interface GlobalUIObserverProps extends PropsWithChildren {
+  target?: HTMLElement;
+}
+
+export default function GlobalUIObserver({
+  target = document.body,
+  children,
+}: GlobalUIObserverProps) {
+  const { lockScroll, unlockScroll } = useBodyScrollLock();
+
+  useEffect(() => {
+    const callback = () => {
+      const hasLayerOnTarget = [BROCCOLI_UI_LAYER_CLASS].some(
+        (selector) => target.querySelector(`.${selector}`) !== null,
+      );
+
+      if (hasLayerOnTarget) {
+        lockScroll();
+      } else {
+        unlockScroll();
+      }
+    };
+
+    const observer = new MutationObserver(callback);
+
+    observer.observe(target, config);
+
+    callback();
+    return () => {
+      observer.disconnect();
+    };
+  }, [target, lockScroll, unlockScroll]);
+
+  return children;
+}
+
+const config: MutationObserverInit = {
+  attributes: false,
+  childList: true,
+  subtree: false,
+};
+```
