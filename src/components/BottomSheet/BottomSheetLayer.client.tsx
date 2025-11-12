@@ -17,7 +17,7 @@ import {
 } from "../../constant";
 import { BottomSheetContext } from "./context.client";
 
-interface BottomSheetLayerProps extends PropsWithChildren {}
+export interface BottomSheetLayerProps extends PropsWithChildren {}
 
 export default function BottomSheetLayer({ children }: BottomSheetLayerProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
