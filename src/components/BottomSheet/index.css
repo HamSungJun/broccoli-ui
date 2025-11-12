@@ -9,6 +9,7 @@
 
 .broccoli-ui-bottom-sheet-panel {
   position: fixed;
+  width: 100%;
   background-color: var(--broccoli-ui-default-panel-background-color);
   transition-property: bottom;
   transition-timing-function: var(
