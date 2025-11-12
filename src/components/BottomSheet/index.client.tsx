@@ -2,6 +2,8 @@
 
 import type { PropsWithChildren } from "react";
 
+import { createPortal } from "react-dom";
+
 import { BROCCOLI_UI_DEFAULT_TRANSITION_DURATION } from "../../constant";
 import BottomSheetLayer from "./BottomSheetLayer.client";
 import BottomSheetPanel from "./BottomSheetPanel.client";
@@ -31,7 +33,7 @@ function BottomSheet({
         ...props,
       }}
     >
-      {children}
+      {createPortal(children, document.body)}
     </BottomSheetContext>
   );
 }

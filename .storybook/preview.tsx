@@ -8,9 +8,7 @@ import "../src/styles/index.css";
 
 const withProvider = (Story) => {
   return (
-    <GlobalUIObserver
-      target={document.getElementById("storybook-root") as HTMLElement}
-    >
+    <GlobalUIObserver>
       <Story />
     </GlobalUIObserver>
   );
