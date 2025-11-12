@@ -4,6 +4,8 @@ import { type PropsWithChildren, useEffect } from "react";
 
 import useBodyScrollLock from "../../hooks/useBodyScrollLock/index.client";
 
+import { BROCCOLI_UI_LAYER_CLASS } from "../../constant";
+
 export interface GlobalUIObserverProps extends PropsWithChildren {
   target?: HTMLElement;
 }
@@ -16,7 +18,7 @@ export default function GlobalUIObserver({
 
   useEffect(() => {
     const callback = () => {
-      const hasLayerOnTarget = [LAYER_SELECTOR].some(
+      const hasLayerOnTarget = [BROCCOLI_UI_LAYER_CLASS].some(
         (selector) => target.querySelector(`.${selector}`) !== null,
       );
 
@@ -45,5 +47,3 @@ const config: MutationObserverInit = {
   childList: true,
   subtree: false,
 };
-
-export const LAYER_SELECTOR = "broccoli-ui-layer";

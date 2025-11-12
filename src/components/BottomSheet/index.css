@@ -14,4 +14,5 @@
   transition-timing-function: var(
     --broccoli-ui-default-transition-timing-function
   );
+  padding-bottom: env(safe-area-inset-bottom);
 }

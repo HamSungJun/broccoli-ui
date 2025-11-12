@@ -24,17 +24,27 @@ type Story = StoryObj<typeof meta>;
 export const WithLayer: Story = {
   render: (args) => {
     return (
-      <BottomSheet {...args}>
-        <BottomSheet.Layer></BottomSheet.Layer>
-        <BottomSheet.Panel>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            doloremque ex velit nobis, cumque omnis quod dolorem porro
-            exercitationem fuga eligendi? Alias non explicabo vitae officiis
-            dolor quos et? Libero.
-          </p>
-        </BottomSheet.Panel>
-      </BottomSheet>
+      <>
+        {Array.from({ length: 20 }).map((_, index) => (
+          <div
+            key={index}
+            style={{ height: "200px", backgroundColor: "lightyellow" }}
+          >
+            {index}
+          </div>
+        ))}
+        <BottomSheet {...args}>
+          <BottomSheet.Layer></BottomSheet.Layer>
+          <BottomSheet.Panel>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              doloremque ex velit nobis, cumque omnis quod dolorem porro
+              exercitationem fuga eligendi? Alias non explicabo vitae officiis
+              dolor quos et? Libero.
+            </p>
+          </BottomSheet.Panel>
+        </BottomSheet>
+      </>
     );
   },
 };
@@ -42,16 +52,26 @@ export const WithLayer: Story = {
 export const WithoutLayer: Story = {
   render: (args) => {
     return (
-      <BottomSheet {...args}>
-        <BottomSheet.Panel>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            doloremque ex velit nobis, cumque omnis quod dolorem porro
-            exercitationem fuga eligendi? Alias non explicabo vitae officiis
-            dolor quos et? Libero.
-          </p>
-        </BottomSheet.Panel>
-      </BottomSheet>
+      <>
+        {Array.from({ length: 20 }).map((_, index) => (
+          <div
+            key={index}
+            style={{ height: "200px", backgroundColor: "lightyellow" }}
+          >
+            {index}
+          </div>
+        ))}
+        <BottomSheet {...args}>
+          <BottomSheet.Panel>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              doloremque ex velit nobis, cumque omnis quod dolorem porro
+              exercitationem fuga eligendi? Alias non explicabo vitae officiis
+              dolor quos et? Libero.
+            </p>
+          </BottomSheet.Panel>
+        </BottomSheet>
+      </>
     );
   },
 };
@@ -62,17 +82,27 @@ export const NoTransition: Story = {
   },
   render: (args) => {
     return (
-      <BottomSheet {...args}>
-        <BottomSheet.Layer />
-        <BottomSheet.Panel>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            doloremque ex velit nobis, cumque omnis quod dolorem porro
-            exercitationem fuga eligendi? Alias non explicabo vitae officiis
-            dolor quos et? Libero.
-          </p>
-        </BottomSheet.Panel>
-      </BottomSheet>
+      <>
+        {Array.from({ length: 20 }).map((_, index) => (
+          <div
+            key={index}
+            style={{ height: "200px", backgroundColor: "lightyellow" }}
+          >
+            {index}
+          </div>
+        ))}
+        <BottomSheet {...args}>
+          <BottomSheet.Layer />
+          <BottomSheet.Panel>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              doloremque ex velit nobis, cumque omnis quod dolorem porro
+              exercitationem fuga eligendi? Alias non explicabo vitae officiis
+              dolor quos et? Libero.
+            </p>
+          </BottomSheet.Panel>
+        </BottomSheet>
+      </>
     );
   },
 };

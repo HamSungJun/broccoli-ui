@@ -11,7 +11,10 @@ import { Transition } from "react-transition-group";
 
 import clsx from "clsx";
 
-import { LAYER_SELECTOR } from "../GlobalUIObserver/index.client";
+import {
+  BROCCOLI_UI_BOTTOM_SHEET_LAYER_CLASS,
+  BROCCOLI_UI_LAYER_CLASS,
+} from "../../constant";
 import { BottomSheetContext } from "./context.client";
 
 interface BottomSheetLayerProps extends PropsWithChildren {}
@@ -36,21 +39,17 @@ export default function BottomSheetLayer({ children }: BottomSheetLayerProps) {
       mountOnEnter
       unmountOnExit
     >
-      {() => (
-        <div
-          ref={nodeRef}
-          className={clsx(
-            LAYER_SELECTOR,
-            BOTTOM_SHEET_LAYER_SELECTOR,
-            classes?.layer,
-          )}
-          onClick={onClick}
-        >
-          {children}
-        </div>
-      )}
+      <div
+        ref={nodeRef}
+        className={clsx(
+          BROCCOLI_UI_LAYER_CLASS,
+          BROCCOLI_UI_BOTTOM_SHEET_LAYER_CLASS,
+          classes?.layer,
+        )}
+        onClick={onClick}
+      >
+        {children}
+      </div>
     </Transition>
   );
 }
-
-const BOTTOM_SHEET_LAYER_SELECTOR = "broccoli-ui-bottom-sheet-layer";

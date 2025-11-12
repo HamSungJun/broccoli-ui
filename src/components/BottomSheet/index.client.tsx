@@ -10,7 +10,6 @@ import { BottomSheetContext } from "./context.client";
 export interface BottomSheetProps extends PropsWithChildren {
   classes?: {
     layer?: string;
-    container?: string;
     panel?: string;
   };
   isOpen: boolean;

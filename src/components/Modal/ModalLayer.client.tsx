@@ -11,9 +11,12 @@ import { Transition } from "react-transition-group";
 
 import clsx from "clsx";
 
-import { BROCCOLI_UI_DEFAULT_TRANSITION_TIMING_FUNCTION } from "../../constant";
+import {
+  BROCCOLI_UI_DEFAULT_TRANSITION_TIMING_FUNCTION,
+  BROCCOLI_UI_LAYER_CLASS,
+  BROCCOLI_UI_MODAL_LAYER_CLASS,
+} from "../../constant";
 import { fadeTransition } from "../../util/transition";
-import { LAYER_SELECTOR } from "../GlobalUIObserver/index.client";
 
 export interface ModalLayerProps extends PropsWithChildren {
   className?: string;
@@ -82,7 +85,11 @@ export default function ModalLayer({
             ...fadeTransition[state],
             transition: `opacity ${duration}ms ${BROCCOLI_UI_DEFAULT_TRANSITION_TIMING_FUNCTION}`,
           }}
-          className={clsx(LAYER_SELECTOR, MODAL_LAYER_SELECTOR, className)}
+          className={clsx(
+            BROCCOLI_UI_LAYER_CLASS,
+            BROCCOLI_UI_MODAL_LAYER_CLASS,
+            className,
+          )}
           onClick={onClick}
         >
           {children}
@@ -92,10 +99,8 @@ export default function ModalLayer({
   );
 }
 
-const MODAL_LAYER_SELECTOR = "broccoli-ui-modal-layer";
-
 const getModals = () => {
-  return document.querySelectorAll(`.${MODAL_LAYER_SELECTOR}`);
+  return document.querySelectorAll(`.${BROCCOLI_UI_MODAL_LAYER_CLASS}`);
 };
 
 const checkIsLastModalOnDocument = (element: HTMLDivElement | null) => {
