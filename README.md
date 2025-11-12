@@ -18,9 +18,11 @@ $ npm install @hsjprime/broccoli-ui
 
 - Components
   - [Accordion](https://hamsungjun.github.io/broccoli-ui/?path=/story/components-accordion--default)
-  - [Collapse](https://hamsungjun.github.io/broccoli-ui/?path=/story/components-switch--default)
-  - [Modal](https://hamsungjun.github.io/broccoli-ui/?path=/story/components-modal--default)
+  - [Collapse](https://hamsungjun.github.io/broccoli-ui/?path=/story/components-collapse--default)
   - [Switch](https://hamsungjun.github.io/broccoli-ui/?path=/story/components-switch--default)
+  - [GlobalUIObserver](https://hamsungjun.github.io/broccoli-ui/?path=/docs/components-globaluiobserver--docs)
+  - [Modal](https://hamsungjun.github.io/broccoli-ui/?path=/story/components-modal--single)
+  - [BottomSheet](https://hamsungjun.github.io/broccoli-ui/?path=/story/components-bottomsheet--with-layer)
 - Hooks
   - [useBodyScrollLock](https://hamsungjun.github.io/broccoli-ui/?path=/story/hooks-usebodyscrolllock--demo)
   - [useSwitch](https://hamsungjun.github.io/broccoli-ui/?path=/story/hooks-useswitch--demo)

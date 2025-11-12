@@ -58,7 +58,7 @@ export default function BottomSheetPanel({
   };
 
   useKeyDown({
-    key: "Escape",
+    eventKey: "Escape",
     handler: onClose,
     enabled: isOpen && closeOnEscapeKeyDown,
   });

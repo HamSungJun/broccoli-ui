@@ -1,23 +1,23 @@
 import { useCallback, useEffect } from "react";
 
 export interface UseKeyDownProps {
-  key: string;
-  handler?: () => void;
+  eventKey: string;
+  handler?: (event: globalThis.KeyboardEvent) => void;
   enabled?: boolean;
 }
 
 export default function useKeyDown({
-  key,
+  eventKey,
   handler,
   enabled = true,
 }: UseKeyDownProps) {
   const onKeyDown = useCallback(
     (event: globalThis.KeyboardEvent) => {
-      if (event.key === key) {
-        handler?.();
+      if (event.key === eventKey) {
+        handler?.(event);
       }
     },
-    [key, handler],
+    [eventKey, handler],
   );
 
   useEffect(() => {

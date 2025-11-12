@@ -1,13 +1,10 @@
 "use client";
 
-import {
-  type MouseEventHandler,
-  type PropsWithChildren,
-  useEffect,
-  useRef,
-} from "react";
+import { type MouseEventHandler, type PropsWithChildren, useRef } from "react";
 
 import { Transition } from "react-transition-group";
+
+import useKeyDown from "../../hooks/useKeyDown/index.client";
 
 import clsx from "clsx";
 
@@ -52,19 +49,14 @@ export default function ModalLayer({
     onClose();
   };
 
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (!closeOnEscapeKeyDown) return;
-      if (event.key !== "Escape") return;
+  useKeyDown({
+    eventKey: "Escape",
+    handler: () => {
       if (!checkIsLastModalOnDocument(nodeRef.current)) return;
       onClose();
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [closeOnEscapeKeyDown, onClose]);
+    },
+    enabled: isOpen && closeOnEscapeKeyDown,
+  });
 
   return (
     <Transition
