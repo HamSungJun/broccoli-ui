@@ -5,32 +5,13 @@ import type { PropsWithChildren } from "react";
 import SwitchContainer from "./SwitchContainer.client";
 import SwitchThumb from "./SwitchThumb.client";
 import SwitchTrack from "./SwitchTrack.client";
-import { SwitchContext } from "./context.client";
+import { SwitchContext, type SwitchContextValue } from "./context.client";
 
-export interface SwitchProps extends PropsWithChildren {
-  classes?: {
-    container?: SwitchClassTypes;
-    track?: SwitchClassTypes;
-    thumb?: SwitchClassTypes;
-  };
-  on: boolean;
-  disabled?: boolean;
-  onChange?: (on: boolean) => void;
-}
+export type { SwitchStateClasses } from "./context.client";
 
-interface SwitchClassTypes {
-  on?: string;
-  off?: string;
-  disabled?: string;
-}
+export interface SwitchProps extends SwitchContextValue, PropsWithChildren {}
 
-function Switch({
-  classes,
-  on,
-  disabled = false,
-  children,
-  onChange,
-}: SwitchProps) {
+function Switch({ classes, on, disabled = false, onChange, children }: SwitchProps) {
   return (
     <SwitchContext value={{ classes, on, disabled, onChange }}>
       <SwitchContainer>{children}</SwitchContainer>

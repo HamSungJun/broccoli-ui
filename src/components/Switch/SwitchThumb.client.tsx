@@ -1,28 +1,19 @@
 "use client";
 
-import { useContext } from "react";
-
-import clsx from "clsx";
-
-import { SwitchContext } from "./context.client";
+import { useSwitchContext, getSwitchStateClasses } from "./context.client";
 
 export default function SwitchThumb() {
-  const { classes, on, disabled } = useContext(SwitchContext);
+  const { classes, on, disabled } = useSwitchContext();
 
   return (
     <span
-      className={clsx(
+      className={getSwitchStateClasses(
         "broccoli-ui-switch-thumb",
-        {
-          "broccoli-ui-switch-thumb--on": on,
-          "broccoli-ui-switch-thumb--off": !on,
-        },
-        {
-          [classes?.thumb?.on ?? ""]: on,
-          [classes?.thumb?.off ?? ""]: !on,
-          [classes?.thumb?.disabled ?? ""]: disabled,
-        },
+        classes?.thumb,
+        on,
+        disabled,
+        true, // include --on/--off modifiers
       )}
-    ></span>
+    />
   );
 }
