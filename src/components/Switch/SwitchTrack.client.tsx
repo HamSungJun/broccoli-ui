@@ -1,27 +1,20 @@
 "use client";
 
-import { type PropsWithChildren, useContext } from "react";
+import type { PropsWithChildren } from "react";
 
-import clsx from "clsx";
-
-import { SwitchContext } from "./context.client";
+import { useSwitchContext, getSwitchStateClasses } from "./context.client";
 
 export default function SwitchTrack({ children }: PropsWithChildren) {
-  const { classes, on, disabled } = useContext(SwitchContext);
+  const { classes, on, disabled } = useSwitchContext();
 
   return (
     <div
-      className={clsx(
+      className={getSwitchStateClasses(
         "broccoli-ui-switch-track",
-        {
-          "broccoli-ui-switch-track--on": on,
-          "broccoli-ui-switch-track--off": !on,
-        },
-        {
-          [classes?.track?.on ?? ""]: on,
-          [classes?.track?.off ?? ""]: !on,
-          [classes?.track?.disabled ?? ""]: disabled,
-        },
+        classes?.track,
+        on,
+        disabled,
+        true, // include --on/--off modifiers
       )}
     >
       {children}

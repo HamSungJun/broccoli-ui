@@ -1,30 +1,25 @@
 "use client";
 
-import { type PropsWithChildren, useContext } from "react";
+import type { PropsWithChildren } from "react";
 
-import clsx from "clsx";
-
-import { SwitchContext } from "./context.client";
+import { useSwitchContext, getSwitchStateClasses } from "./context.client";
 
 export default function SwitchContainer({ children }: PropsWithChildren) {
-  const { classes, on, disabled, onChange } = useContext(SwitchContext);
-
-  const onClick = () => {
-    onChange?.(!on);
-  };
+  const { classes, on, disabled, onChange } = useSwitchContext();
 
   return (
     <button
-      className={clsx("broccoli-ui-switch-container", {
-        [classes?.container?.on ?? ""]: on,
-        [classes?.container?.off ?? ""]: !on,
-        [classes?.container?.disabled ?? ""]: disabled,
-      })}
+      className={getSwitchStateClasses(
+        "broccoli-ui-switch-container",
+        classes?.container,
+        on,
+        disabled,
+      )}
       disabled={disabled}
       role="switch"
       aria-checked={on}
       aria-disabled={disabled}
-      onClick={onClick}
+      onClick={() => onChange?.(!on)}
     >
       {children}
     </button>
